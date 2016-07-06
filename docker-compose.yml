@@ -1,0 +1,59 @@
+version: '2'
+services:
+
+  #########################################
+  #### Database Server (mysql 5.7)
+  #########################################
+  mysql:
+    image: mysql:5.7
+    restart: always
+    expose:
+      - "{{ cookiecutter.mysql_port }}"
+    environment:
+      MYSQL_DATABASE: {{ cookiecutter.mysql_db_name }}
+      MYSQL_USER: {{ cookiecutter.mysql_db_user }}
+      MYSQL_PASSWORD: {{ cookiecutter.mysql_db_pass }}
+      MYSQL_ROOT_PASSWORD: {{ cookiecutter.mysql_db_root_pass }}
+    volumes:
+      - "./mysql/.data/db:/var/lib/mysql"
+
+  #########################################
+  #### {{ cookiecutter.project_name }} Application Server (Flask)
+  #########################################
+  web:
+    restart: always
+    build: ./{{ cookiecutter.app_name }}
+    depends_on:
+      - mysql
+    expose:
+      - "5000"
+    volumes:
+      - ./{{ cookiecutter.app_name }}:/usr/src/app
+    environment:
+      APP_ENV: Docker
+      MYSQL_DATABASE: {{ cookiecutter.mysql_database }}
+      MYSQL_USER: {{ cookiecutter.mysql_user }}
+      MYSQL_PASSWORD: {{ cookiecutter.mysql_password }}
+      MYSQL_ROOT_PASSWORD: {{ cookiecutter.mysql_root_password }}
+      MYSQL_HOST: {{ cookiecutter.mysql_host }}
+      MYSQL_PORT: {{ cookiecutter.mysql_port }}
+    links:
+      # host name that will be used
+      - mysql:{{ cookiecutter.mysql_host }}
+
+    command: python2 robinhood.py
+
+  #########################################
+  #### Application routing (nginx)
+  #########################################
+  nginx:
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - /www/static
+    volumes_from:
+      - web
+    links:
+      - web:{{ cookiecutter.app_name }}

@@ -1,0 +1,10 @@
+{
+	"full_name": "Steven Loria",
+	"email": "bmd@bluestatedigital.com",
+	"github_username": "bmd",
+	"project_name": "My Flask App",
+	"app_name": "myflaskapp",
+	"project_short_description": "A flasky app.",
+    "mysql_db_host": "flask",
+    "mysql_db_pass": "flask"
+}
