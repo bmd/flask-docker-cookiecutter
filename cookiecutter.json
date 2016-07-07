@@ -1,10 +1,14 @@
 {
-	"full_name": "Steven Loria",
-	"email": "bmd@bluestatedigital.com",
-	"github_username": "bmd",
-	"project_name": "My Flask App",
-	"app_name": "myflaskapp",
-	"project_short_description": "A flasky app.",
-    "mysql_db_host": "flask",
-    "mysql_db_pass": "flask"
+  "full_name": "Brendan Maione-Downing",
+  "email": "bmd@bluestatedigital.com",
+  "github_username": "bmd",
+  "project_name": "Flask-Docker API",
+  "app_name": "flask_docker",
+  "project_short_description": "A microservice based on flask-restful and docker",
+  "mysql_host": "flask",
+  "mysql_user": "flask",
+  "mysql_password": "flask",
+  "mysql_root_password": "flask",
+  "mysql_database": "flask",
+  "msyql_port": 3306
 }
