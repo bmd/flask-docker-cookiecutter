@@ -29,3 +29,8 @@ def make_app():
 
 
 db, api, app = make_app()
+
+# Configure routes
+api.add_resource(
+    Home, '/', endpoint='home', strict_slashes=False
+)
