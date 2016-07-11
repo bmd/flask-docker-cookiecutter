@@ -18,6 +18,9 @@ class Home(Resource):
             ],
             'version': '0.0.1',
             'creators': [
-                '{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>'
+                {
+                    'name': '{{ cookiecutter.full_name }}',
+                    'email': '{{ cookiecutter.email }}'
+                }
             ]
         }
