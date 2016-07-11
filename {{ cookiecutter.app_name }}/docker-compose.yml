@@ -12,8 +12,8 @@ services:
     environment:
       MYSQL_DATABASE: {{ cookiecutter.mysql_database }}
       MYSQL_USER: {{ cookiecutter.mysql_user }}
-      MYSQL_PASSWORD: {{ cookiecutter.mysql_pass }}
-      MYSQL_ROOT_PASSWORD: {{ cookiecutter.mysql_root_pass }}
+      MYSQL_PASSWORD: {{ cookiecutter.mysql_password }}
+      MYSQL_ROOT_PASSWORD: {{ cookiecutter.mysql_root_password }}
     volumes:
       - "./mysql/.data/db:/var/lib/mysql"
 
