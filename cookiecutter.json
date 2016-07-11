@@ -1,7 +1,7 @@
 {
-  "full_name": "Brendan Maione-Downing",
-  "email": "bmd@bluestatedigital.com",
-  "github_username": "bmd",
+  "full_name": "",
+  "email": "",
+  "github_username": "",
   "project_name": "Flask-Docker API",
   "app_name": "flask_docker",
   "project_short_description": "A microservice based on flask-restful and docker",
@@ -10,5 +10,5 @@
   "mysql_password": "flask",
   "mysql_root_password": "flask",
   "mysql_database": "flask",
-  "msyql_port": 3306
+  "mysql_port": 3306
 }
